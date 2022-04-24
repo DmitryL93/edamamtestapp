@@ -1,0 +1,36 @@
+$main-font: (
+  desktop-size: 1vw,
+  family: 'RobotoSlab',
+  generic: sans-serif,
+  line-height: 1.25
+);
+
+$color: (
+  main-font: #333,
+  primary-nav: #13565f,
+  primary-nav-hover: darken(#13565f, 5%),
+  disabled-nav: #ddd,
+  disabled-nav-hover: darken(#ddd, 5%),
+  success-nav: #45be32,
+  success-nav-hover: darken(#45be32, 5%),
+  warning-nav: #ee5a24,
+  warning-nav-hover: darken(#ee5a24, 5%),
+  error-nav: #e81f18,
+  error-nav-hover: darken(#e81f18, 5%)
+);
+
+$transition: all 0.2s ease-in;
+
+$box-shadow: 0.2vw 0.2vw 1vw 0
+  rgba(
+    $color: #000000,
+    $alpha: 0.2
+  );
+
+$breakpoints: (
+  tablet: 900px,
+  mobile: 600px
+);
+
+$tablet-ratio: 4;
+$mobile-ratio: 4.5;

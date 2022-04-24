@@ -1,0 +1,35 @@
+@import '_reset.scss', '_variables.scss', '_mixins.scss', '_inheritance.scss';
+
+@font-face {
+  font-family: 'RobotoSlab-Regular';
+  src: url('@/static/fonts/RobotoSlab-Regular.woff2') format('woff2'),
+    url('@/static/fonts/RobotoSlab-Regular.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'RobotoSlab-Bold';
+  src: url('@/static/fonts/RobotoSlab-Bold.woff2') format('woff2'),
+    url('@/static/fonts/RobotoSlab-Bold.woff') format('woff');
+  font-weight: 700;
+}
+
+html,
+body,
+* {
+  @include size(font, map-get($main-font, desktop-size));
+  font-family: map-get($main-font, family), map-get($main-font, generic);
+  line-height: map-get($main-font, line-height);
+  color: map-get($color, main-font);
+  box-sizing: border-box;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

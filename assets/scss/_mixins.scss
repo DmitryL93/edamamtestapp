@@ -1,0 +1,234 @@
+@mixin size($type, $size) {
+  @if $type == font {
+    font-size: $size;
+
+    @media (max-width: map-get($breakpoints, tablet)) {
+      font-size: $size * $tablet-ratio;
+    }
+
+    @media (max-width: map-get($breakpoints, mobile)) {
+      font-size: $size * $mobile-ratio;
+    }
+  }
+
+  @if $type == height {
+    height: $size;
+
+    @media (max-width: map-get($breakpoints, tablet)) {
+      height: $size * $tablet-ratio;
+    }
+
+    @media (max-width: map-get($breakpoints, mobile)) {
+      height: $size * $mobile-ratio;
+    }
+  }
+
+  @if $type == width {
+    width: $size;
+
+    @media (max-width: map-get($breakpoints, tablet)) {
+      width: $size * $tablet-ratio;
+    }
+
+    @media (max-width: map-get($breakpoints, mobile)) {
+      width: $size * $mobile-ratio;
+    }
+  }
+
+  @if $type == border-radius {
+    border-radius: $size;
+
+    @media (max-width: map-get($breakpoints, tablet)) {
+      border-radius: $size * $tablet-ratio;
+    }
+
+    @media (max-width: map-get($breakpoints, mobile)) {
+      border-radius: $size * $mobile-ratio;
+    }
+  }
+
+  @if $type == border-width {
+    border-width: $size;
+
+    @media (max-width: map-get($breakpoints, tablet)) {
+      border-width: $size * $tablet-ratio;
+    }
+
+    @media (max-width: map-get($breakpoints, mobile)) {
+      border-width: $size * $mobile-ratio;
+    }
+  }
+}
+
+@mixin space($type, $direction, $size) {
+  @if $type == margin {
+    @if $direction == all {
+      margin: $size;
+
+      @media (max-width: map-get($breakpoints, tablet)) {
+        margin: $size * $tablet-ratio;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        margin: $size * $mobile-ratio;
+      }
+    }
+
+    @if $direction == top {
+      margin-top: $size;
+
+      @media (max-width: map-get($breakpoints, tablet)) {
+        margin-top: $size * $tablet-ratio;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        margin-top: $size * $mobile-ratio;
+      }
+    }
+
+    @if $direction == bottom {
+      margin-bottom: $size;
+
+      @media (max-width: map-get($breakpoints, tablet)) {
+        margin-bottom: $size * $tablet-ratio;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        margin-bottom: $size * $mobile-ratio;
+      }
+    }
+
+    @if $direction == left {
+      margin-left: $size;
+
+      @media (max-width: map-get($breakpoints, tablet)) {
+        margin-left: $size * $tablet-ratio;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        margin-left: $size * $mobile-ratio;
+      }
+    }
+
+    @if $direction == right {
+      margin-right: $size;
+
+      @media (max-width: map-get($breakpoints, tablet)) {
+        margin-right: $size * $tablet-ratio;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        margin-right: $size * $mobile-ratio;
+      }
+    }
+  }
+
+  @if $type == padding {
+    @if $direction == all {
+      padding: $size;
+
+      @media (max-width: map-get($breakpoints, tablet)) {
+        padding: $size * $tablet-ratio;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        padding: $size * $mobile-ratio;
+      }
+    }
+
+    @if $direction == top {
+      padding-top: $size;
+
+      @media (max-width: map-get($breakpoints, tablet)) {
+        padding-top: $size * $tablet-ratio;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        padding-top: $size * $mobile-ratio;
+      }
+    }
+
+    @if $direction == bottom {
+      padding-bottom: $size;
+
+      @media (max-width: map-get($breakpoints, tablet)) {
+        padding-bottom: $size * $tablet-ratio;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        padding-bottom: $size * $mobile-ratio;
+      }
+    }
+
+    @if $direction == left {
+      padding-left: $size;
+
+      @media (max-width: map-get($breakpoints, tablet)) {
+        padding-left: $size * $tablet-ratio;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        padding-left: $size * $mobile-ratio;
+      }
+    }
+
+    @if $direction == right {
+      padding-right: $size;
+
+      @media (max-width: map-get($breakpoints, tablet)) {
+        padding-right: $size * $tablet-ratio;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        padding-right: $size * $mobile-ratio;
+      }
+    }
+  }
+}
+
+@mixin grid($desktop-columns: 1, $gap: 0, $tablet-columns: 1, $mobile-columns: 1) {
+  display: grid;
+  grid-template-columns: repeat($desktop-columns, 1fr);
+  grid-gap: $gap;
+
+  @media (max-width: map-get($breakpoints, tablet)) {
+    grid-template-columns: repeat($tablet-columns, 1fr);
+    grid-gap: $gap * $tablet-ratio;
+  }
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    grid-template-columns: repeat($mobile-columns, 1fr);
+    grid-gap: $gap * $mobile-ratio;
+  }
+}
+
+@mixin flex($justify: center, $align: center, $direction: row, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+
+  @if $direction == row {
+    column-gap: $gap;
+
+    @media (max-width: map-get($breakpoints, tablet)) {
+      column-gap: $gap * $tablet-ratio;
+    }
+
+    @media (max-width: map-get($breakpoints, mobile)) {
+      row-gap: $gap * $mobile-ratio;
+    }
+  }
+
+  @if $direction == column {
+    row-gap: $gap;
+
+    @media (max-width: map-get($breakpoints, tablet)) {
+      row-gap: $gap * $tablet-ratio;
+    }
+
+    @media (max-width: map-get($breakpoints, mobile)) {
+      row-gap: $gap * $mobile-ratio;
+    }
+  }
+}

@@ -1,0 +1,144 @@
+%container,
+%container-fluid {
+  height: auto;
+  margin: 0 auto;
+}
+
+%container {
+  width: 85vw;
+}
+
+%container-fluid {
+  width: 100vw;
+}
+
+%modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: #000, $alpha: 0.8);
+  z-index: 10;
+}
+
+%title {
+  @include size(font, 1.35vw);
+  color: map-get($color, primary-nav);
+  font-weight: 700;
+}
+
+%button {
+  @include space(padding, left, 1.35vw);
+  @include space(padding, right, 1.35vw);
+  @include space(padding, top, 0.75vw);
+  @include space(padding, bottom, 0.75vw);
+  @include size(border-radius, 0.35vw);
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
+  background-color: map-get($color, primary-nav);
+  color: #fff;
+  transition: $transition;
+  cursor: pointer;
+
+  &:hover {
+    background-color: map-get($color, primary-nav-hover);
+    transition: $transition;
+  }
+
+  &--active {
+    background-color: map-get($color, success-nav);
+
+    &:hover {
+      background-color: map-get($color, success-nav-hover);
+    }
+  }
+
+  &--disabled {
+    background-color: map-get($color, disabled-nav);
+    cursor: inherit;
+
+    &:hover {
+      background-color: map-get($color, disabled-nav-hover);
+    }
+  }
+}
+
+%input {
+  @include space(padding, left, 1vw);
+  @include space(padding, right, 1vw);
+  @include space(padding, top, 0.5vw);
+  @include space(padding, bottom, 0.5vw);
+  @include size(border-radius, 0.2vw);
+  @include size(border-width, 0.15vw);
+  border-style: solid;
+  border-color: map-get($color, disabled-nav);
+  background-color: #fff;
+  box-shadow: 0.1vw 0.35vw 0.35vw 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  @media (max-width: map-get($breakpoints, tablet)) {
+    box-shadow: calc(0.1vw * $tablet-ratio) calc(0.35vw * $tablet-ratio)
+      calc(0.35vw * $tablet-ratio) 0 rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    box-shadow: calc(0.1vw * $mobile-ratio) calc(0.35vw * $mobile-ratio)
+      calc(0.35vw * $mobile-ratio) 0 rgba(0, 0, 0, 0.2);
+  }
+
+  &::placeholder {
+    color: map-get($color, disabled-nav);
+  }
+
+  &:focus {
+    @include size(border-width, 0.15vw);
+    border-style: solid;
+    border-color: map-get($color, primary-nav);
+    color: map-get($color, primary-nav);
+  }
+
+  &--success {
+    border-color: map-get($color, success-nav);
+    color: map-get($color, success-nav);
+  }
+
+  &--error {
+    border-color: map-get($color, error-nav);
+    color: map-get($color, error-nav);
+  }
+
+  &--disabled {
+    border-color: map-get($color, disabled-nav);
+    color: map-get($color, disabled-nav);
+    cursor: inherit;
+  }
+}
+
+%card {
+  @include space(padding, all, 2vw);
+  @include size(border-radius, 0.5vw);
+  background-color: #fff;
+  box-shadow: $box-shadow;
+  transition: $transition;
+}
+
+%table {
+  width: 100%;
+  border: none;
+
+  tbody td {
+    @include space(padding, all, 0.5vw);
+    @include size(border-width, 0.1vw);
+    border-style: solid;
+    border-color: map-get($color, primary-nav);
+    text-align: left;
+    vertical-align: middle;
+
+    @media (max-width: map-get($breakpoints, tablet)) {
+      @include space(padding, all, 1vw);
+      @include flex(center, center, column, 1vw);
+    }
+  }
+}
